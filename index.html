@@ -894,7 +894,102 @@ html {
     scroll-behavior: smooth;
 }
 
+/* SERVICE CARD ANIMATION & STYLE */
+.service-card {
+  width: 280px;
+  height: 320px;
+  perspective: 1500px;
+  animation: float-up-down 4s ease-in-out infinite;
+}
 
+.service-card .card-front,
+.service-card .card-back {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top:0; left:0;
+  backface-visibility: hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  transition: transform 0.8s ease, box-shadow 0.4s ease;
+  background: linear-gradient(135deg, #ff7f50, #1e90ff);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.service-card .card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #32cd32, #00bfff);
+  padding:25px;
+}
+
+.service-card:hover .card-front {
+  transform: rotateY(180deg);
+}
+
+.service-card:hover .card-back {
+  transform: rotateY(0deg);
+}
+
+.service-card i {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  background: linear-gradient(45deg, #ffdd00, #ff5733, #1e90ff, #32cd32, #ff7f50);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: icon-bounce 1.2s infinite, rainbow-glow 3s infinite linear;
+}
+
+@keyframes icon-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes rainbow-glow {
+  0% { filter: drop-shadow(0 0 5px #ff5733); }
+  25% { filter: drop-shadow(0 0 10px #ffdd00); }
+  50% { filter: drop-shadow(0 0 15px #1e90ff); }
+  75% { filter: drop-shadow(0 0 10px #32cd32); }
+  100% { filter: drop-shadow(0 0 5px #ff5733); }
+}
+
+.service-card h3 {
+  font-size:1.5rem;
+  margin-bottom:10px;
+}
+
+.service-card p {
+  font-size:1rem;
+  margin-bottom:15px;
+}
+
+.service-card .btn {
+  padding:10px 20px;
+  border-radius:8px;
+  background: linear-gradient(45deg, #ff7f50, #ffdd00, #1e90ff, #32cd32);
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow: 0 0 15px rgba(255,255,255,0.4);
+  transition: 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card .btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255,255,255,0.8);
+}
+
+/* FLOATING CARD ANIMATION */
+@keyframes float-up-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+    
 </style>
 </head>
 <body>
@@ -1106,6 +1201,86 @@ html {
     </div>
 </section>
 
+    <section id="downloads" class="bg-parallax fade-in-section" style="padding:60px 0; background: linear-gradient(135deg, #1e3c72, #2a5298);">
+  <div class="container section-header" style="text-align:center; color:#fff;">
+    <h2 style="font-size:2.8rem; margin-bottom:10px;">Company Documents</h2>
+    <div class="divider" style="width:100px; height:4px; background: linear-gradient(to right, #ff7f50, #1e90ff); margin: 0 auto 20px;"></div>
+    <p style="font-size:1.1rem; max-width:700px; margin:0 auto;">Download our brochures, manuals, and guides to explore our products and services in detail.</p>
+  </div>
+
+  <div class="container services-grid" style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:50px;">
+    
+    <!-- Brochure -->
+    <div class="service-card">
+      <div class="card-front">
+        <i class="fas fa-file-pdf"></i>
+        <h3>Company Brochure</h3>
+      </div>
+      <div class="card-back">
+        <p>Full overview of our services, solutions, and completed projects.</p>
+            <a href="documents/bronchure.pdf" download style="
+            padding:15px 35px;
+            background:linear-gradient(135deg,#00c864,#99ffc4);
+            color:white;
+            font-weight:bold;
+            border-radius:50px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.3);
+            transition:0.4s;
+            display:inline-block;
+        " onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.5)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.3)';">
+            Download Broncure
+        </a>
+      </div>
+    </div>
+
+    <!-- User Manual -->
+    <div class="service-card">
+      <div class="card-front">
+        <i class="fas fa-book"></i>
+        <h3>User Manual</h3>
+      </div>
+      <div class="card-back">
+        <p>Step-by-step instructions to get the best from our products.</p>
+            <a href="documents/manual.pdf" download style="
+            padding:15px 35px;
+            background:linear-gradient(135deg,#00c864,#99ffc4);
+            color:white;
+            font-weight:bold;
+            border-radius:50px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.3);
+            transition:0.4s;
+            display:inline-block;
+        " onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.5)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.3)';">
+            Download Manual
+        </a>
+      </div>
+    </div>
+
+    <!-- Installation Guide -->
+    <div class="service-card">
+      <div class="card-front">
+        <i class="fas fa-tools"></i>
+        <h3>Installation Guide</h3>
+      </div>
+      <div class="card-back">
+        <p>Guidelines for safe and efficient installation of our equipment.</p>
+             <a href="documents/guide.pdf" download style="
+            padding:15px 35px;
+            background:linear-gradient(135deg,#ff8c00,#ffd27f);
+            color:white;
+            font-weight:bold;
+            border-radius:50px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.3);
+            transition:0.4s;
+            display:inline-block;
+        " onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.5)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.3)';">
+            Download Guide
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
 <!-- FOOTER -->
@@ -1365,4 +1540,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 </body>
 </html>
+
 
