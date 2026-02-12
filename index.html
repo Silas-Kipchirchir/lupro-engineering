@@ -1481,6 +1481,7 @@ const aboutObserver = new IntersectionObserver((entries) => {
 aboutParagraphs.forEach(p => aboutObserver.observe(p));
 
 // Count-up numbers
+// Count-up numbers
 const counters = document.querySelectorAll('#about-more .count');
 const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1501,7 +1502,9 @@ const counterObserver = new IntersectionObserver((entries) => {
             counterObserver.unobserve(entry.target);
         }
     });
+}, { threshold: 0.5 });
 
+counters.forEach(counter => counterObserver.observe(counter));
 
 // Smooth scroll for Learn More
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1535,6 +1538,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 </body>
 </html>
+
 
 
 
