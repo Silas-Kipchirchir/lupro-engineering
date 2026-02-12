@@ -1483,21 +1483,25 @@ aboutParagraphs.forEach(p => aboutObserver.observe(p));
 // Count-up numbers
 // Count-up numbers
 const counters = document.querySelectorAll('#about-more .count');
+
 const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if(entry.isIntersecting){
+
             const updateCount = (el) => {
                 const target = +el.getAttribute('data-target');
-                const count = +el.innerText;
+                const count = +el.innerText.replace('+',''); // remove +
+
                 const increment = target / 100;
 
                 if(count < target){
                     el.innerText = Math.ceil(count + increment);
                     setTimeout(() => updateCount(el), 20);
                 } else {
-                    el.innerText = target;
+                    el.innerText = target + "+"; // add +
                 }
             };
+
             updateCount(entry.target);
             counterObserver.unobserve(entry.target);
         }
@@ -1505,6 +1509,7 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 counters.forEach(counter => counterObserver.observe(counter));
+
 
 // Smooth scroll for Learn More
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1538,6 +1543,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 </body>
 </html>
+
 
 
 
