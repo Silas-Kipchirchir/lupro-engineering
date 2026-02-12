@@ -181,7 +181,7 @@ section { padding: 80px 0; }
 /* SERVICES */
 /* SERVICES SECTION */
 #services {
-    background-image: url('services-bg.jpg'); /* Replace with your image path */
+    background-image: url('assets/services-bg.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -271,7 +271,7 @@ section { padding: 80px 0; }
 /* SERVICE CARD */
 /* SERVICES SECTION */
 #services {
-    background-image: url('services-bg.jpg'); /* Replace with your image path */
+    background-image: url('images/services-bg.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -533,7 +533,7 @@ header.shrink .logo img {
 =========================== */
 #vision, #Mission, #services {
     position: relative;
-    background-image: url('common-bg.jpg'); /* single fixed image */
+    background-image: url('assets/common-bg.jpg'); /* single fixed image */
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* keeps the image still */
@@ -756,7 +756,7 @@ header.shrink .logo img {
 /* ABOUT MORE SECTION */
 #about-more {
     position: relative;
-    background-image: url('common-bg.jpg');
+    background-image: url('assets/common-bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -894,6 +894,8 @@ html {
     scroll-behavior: smooth;
 }
 
+
+
 /* SERVICE CARD ANIMATION & STYLE */
 .service-card {
   width: 280px;
@@ -989,7 +991,7 @@ html {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
-    
+
 </style>
 </head>
 <body>
@@ -1009,7 +1011,7 @@ html {
 <!-- HEADER -->
 <header>
 <div class="container">
-    <div class="logo"><img src="lupro-logo.png" alt="Lupro Engineering"></div>
+    <div class="logo"><img src="assets/lupro-logo.png" alt="Lupro Engineering"></div>
     <nav>
         <ul>
             <li><a href="#hero" class="active">Home</a></li>
@@ -1056,7 +1058,7 @@ html {
 
 <section class="hero" id="hero">
     <!-- Slide 1 -->
-    <div class="slide active" style="background-image:url('hero.jpg');">
+    <div class="slide active" style="background-image:url('assets/hero.jpg');">
         <div class="slide-overlay"></div>
         <div class="slide-content">
             <h1 id="typing-text"></h1>
@@ -1065,7 +1067,7 @@ html {
     </div>
 
     <!-- Slide 2 -->
-    <div class="slide" style="background-image:url('hero1.jpg');">
+    <div class="slide" style="background-image:url('assets/hero1.jpg');">
         <div class="slide-overlay"></div>
         <div class="slide-content">
             <h1>Electrical & Structural Solutions</h1>
@@ -1087,7 +1089,7 @@ html {
         <a href="#vision" class="cta-button">Learn More</a>
 
     </div>
-    <div class="intro-image"><img src="about.jpg" alt="About Lupro"></div>
+    <div class="intro-image"><img src="assets/about.jpg" alt="About Lupro"></div>
 </div>
 </section>
 
@@ -1104,15 +1106,15 @@ html {
       <!-- STATS GRID -->
       <div class="stats-grid">
         <div class="stat">
-          <h3 class="count" data-target="200+">0</h3>
+          <h3 class="count" data-target="200">0</h3>
           <p>Completed Projects</p>
         </div>
         <div class="stat">
-          <h3 class="count" data-target="20+">0</h3>
+          <h3 class="count" data-target="50">0</h3>
           <p>Professional Engineers</p>
         </div>
         <div class="stat">
-          <h3 class="count" data-target="5+">0</h3>
+          <h3 class="count" data-target="10">0</h3>
           <p>Years of Experience</p>
         </div>
       </div>
@@ -1201,7 +1203,8 @@ html {
     </div>
 </section>
 
-    <section id="downloads" class="bg-parallax fade-in-section" style="padding:60px 0; background: linear-gradient(135deg, #1e3c72, #2a5298);">
+
+<section id="downloads" class="bg-parallax fade-in-section" style="padding:60px 0; background: linear-gradient(135deg, #1e3c72, #2a5298);">
   <div class="container section-header" style="text-align:center; color:#fff;">
     <h2 style="font-size:2.8rem; margin-bottom:10px;">Company Documents</h2>
     <div class="divider" style="width:100px; height:4px; background: linear-gradient(to right, #ff7f50, #1e90ff); margin: 0 auto 20px;"></div>
@@ -1318,11 +1321,13 @@ html {
 </ul>
 </div>
 </div>
-
+<div class="footer-bottom">
+<p>Copyright © 2026 Lupro Engineering Limited - Designed by <a href="https://wa.me/c/254719568205">Bluetech Networks</a></p>
+</div>
 </footer>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/254715779902?text=Hello%20Lupro%20Engineering!%20I%20would%20like%20to%20inquire%20about%20your%20services." 
+<a href="https://wa.me/254727781989?text=Hello%20Lupro%20Engineering!%20I%20would%20like%20to%20inquire%20about%20your%20services." 
    class="whatsapp-button" target="_blank" 
    style="position: fixed; bottom:20px; left:20px; width:60px; height:60px; background:#25D366; color:white; border-radius:50%; display:flex; justify-content:center; align-items:center; font-size:30px; box-shadow:0 4px 12px rgba(37,211,102,0.3); transition:0.3s; z-index:999; animation:pulse 2s infinite;">
    <i class="fab fa-whatsapp"></i>
@@ -1481,7 +1486,6 @@ const aboutObserver = new IntersectionObserver((entries) => {
 aboutParagraphs.forEach(p => aboutObserver.observe(p));
 
 // Count-up numbers
-// Count-up numbers
 const counters = document.querySelectorAll('#about-more .count');
 
 const counterObserver = new IntersectionObserver((entries) => {
@@ -1509,6 +1513,7 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 counters.forEach(counter => counterObserver.observe(counter));
+
 
 
 // Smooth scroll for Learn More
@@ -1543,13 +1548,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
