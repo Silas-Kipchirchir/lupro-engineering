@@ -1481,29 +1481,22 @@ const aboutObserver = new IntersectionObserver((entries) => {
 aboutParagraphs.forEach(p => aboutObserver.observe(p));
 
 // Count-up numbers
-const counters = document.querySelectorAll('#about-more .count');
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            const updateCount = (el) => {
-                const target = +el.getAttribute('data-target');
-                const count = +el.innerText;
-                const increment = target / 100;
+const counters = document.querySelectorAll('.count');
 
-                if(count < target){
-                    el.innerText = Math.ceil(count + increment);
-                    setTimeout(() => updateCount(el), 20);
-                } else {
-                    el.innerText = target;
-                }
-            };
-            updateCount(entry.target);
-            counterObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
+counters.forEach(counter => {
+  const updateCount = () => {
+    const target = +counter.getAttribute('data-target');
+    const current = +counter.innerText.replace('+','');
 
-counters.forEach(counter => counterObserver.observe(counter));
+    const increment = target / 100;
+
+    if (current < target) {
+      counter.innerText = Math.ceil(current + increment);
+      setTimeout(updateCount, 20);
+    } else {
+      counter.innerText = target + "+";
+    }
+  };
 
 
 // Smooth scroll for Learn More
@@ -1538,6 +1531,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 </body>
 </html>
+
 
 
 
